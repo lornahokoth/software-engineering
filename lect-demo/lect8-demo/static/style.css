@@ -1,0 +1,10 @@
+body {
+    background-color: green;
+    font-family: "Fantasy", monospace;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 40px 15px; 
+}
