@@ -1,0 +1,21 @@
+<html lang="en">
+
+<head>
+  <title>Movie Delver</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <div>
+    <h1>Movie Delver</h1>
+    <ul>
+      {% for movie in movies %}
+      <li>
+        <a href="/movie?movie_id={{movie['movie_id']}}">{{movie["movie_title"]}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+
+</html>

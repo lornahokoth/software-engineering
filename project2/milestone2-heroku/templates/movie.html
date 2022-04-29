@@ -1,0 +1,126 @@
+<html lang="en">
+
+<head>
+  <title>Movie Delver</title>
+  <script>
+    function showReviewEntry() {
+      if ($('#review_form').hasClass('d-none')) {
+        $('#review_form').removeClass('d-none')
+      } else {
+        $('#review_form').addClass('d-none')
+      }
+    }
+
+    function cancelReview() {
+      $("#review").val("")
+      $("#rating").val(0)
+      // $('#review_form').addClass('d-none')
+    }
+  </script>
+  <script src="/static/jquery.min.js"></script>
+  <!-- CSS only -->
+  <link href="/static/bootstrap.min.css" rel="stylesheet" />
+  <link href="/static/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <h1>Movie Delver</h1>
+  <h2>{{movie["title"]}}</h2>
+  <div class="d-flex">
+    <div class="container-fluid movie-container">
+      <div class="row">
+        <div class="col">
+          <img src="{{imageURL}}" alt="img" />
+        </div>
+        <div class="col movie-details">
+          <div class="row">
+            <div class="col-4"><label class="bold">Genre(s): </label></div>
+            <div class="col-8">{{genre}}</div>
+          </div>
+          <div class="row">
+            <div class="col-4"><label class="bold">Tagline: </label></div>
+            <div class="col-8">{{movie["tagline"]}}</div>
+          </div>
+          <div class="row">
+            <div class="col-4"><label class="bold">Budget: </label></div>
+            <div class="col-8">{{"${:,.0f}".format(movie["budget"])}}</div>
+          </div>
+          <div class="row">
+            <div class="col-4"><label class="bold">Release Date: </label></div>
+            <div class="col-8">{{movie["release_date"]}}</div>
+          </div>
+          <div class="row ">
+            <a href="{{results}}">Click here to see <i>{{movie["title"]}}</i> Wiki page!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-3">
+          <button onclick="showReviewEntry()">Add a Review</button>
+        </div>
+      </div>
+      <form id="review_form" class="d-none" action="/addReview" method="POST">
+        <div class="row mt-4">
+          <div class="row">
+            <div class="col-3">
+              <select name="rating" id="rating" class="rating">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <label> / 10</label>
+            </div>
+            <div class="col-9"></div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-9">
+              <textarea id="review" name="review" rows="4" cols="70" placeholder="Enter your review here!"></textarea>
+            </div>
+            <div class="col-3"></div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-6">
+              <input type="text" class="d-none" name="movie_id" value="{{movie_id}}" readonly>
+            </div>
+            <div class="col-1">
+              <button type="submit">Submit</button>
+            </div>
+            <div class="col-1">
+              <button type="button" onclick="cancelReview()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <hr class="mt-5">
+      {% if reviews[0] == "None" %}
+      <p>No Reviews Found</p>
+      {% else %}
+      <h2>Reviews</h2>
+      {% for review in reviews %}
+      <div class="row left">
+        <div class="col">
+          {{review["username"]}} - {{review["rating"]}} / 10 :
+        </div>
+      </div>
+      <div class="row left">
+        <div class="col">
+          {{review["review"]}}
+        </div>
+      </div>
+      <hr>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</body>
+
+</html>

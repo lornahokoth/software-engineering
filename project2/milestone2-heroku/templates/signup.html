@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+  <title>Movie Delver</title>
+  <!-- CSS only -->
+  <link href="/static/bootstrap.min.css" rel="stylesheet" />
+  <link href="/static/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main>
+    <div class="container-fluid login-container">
+      <div class="row login-row">
+        <div id="signup" name="signup" class="col login-col ">
+          <div class="login d-flex align-items-center py-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-10 col-xl-7 mx-auto">
+                  <h3 class="display-4 text-center">Movie Delver</h3>
+                  <p class="text-muted mb-4 text-center">Please fill in the details below to sign up for Movie Delver.
+                  </p>
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  <ul class="flashes">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                  {% endwith %}
+                  <form method="POST" action="/signup">
+                    <div class="mb-3">
+                      <input id="username" name="username" type="text" placeholder="Username" required="" autofocus=""
+                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                    </div>
+                    <div class="mb-3">
+                      <input id="password" name="password" type="password" placeholder="Password" required=""
+                        class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                    </div>
+                    <div class="mb-3">
+                      <input id="confirm_pwd" name="confirm_pwd" type="password" placeholder="Confirm Password"
+                        required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                    </div>
+                    <div class="text-center">
+                      <button type="submit"
+                        class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign Up</button>
+                    </div>
+                  </form>
+                  <label class="hr-label">OR</label>
+                  <form action="/login">
+                    <div class="text-center bottom-button">
+                      <button type="submit"
+                        class="btn btn-outline-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Already
+                        Have an Account</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

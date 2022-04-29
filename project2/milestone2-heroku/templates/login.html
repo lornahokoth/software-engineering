@@ -1,0 +1,61 @@
+<head>
+  <title>Movie Delver</title>
+  <!-- CSS only -->
+  <link href="/static/bootstrap.min.css" rel="stylesheet" />
+  <link href="/static/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main>
+    <div class="container-fluid login-container">
+      <div class="row login-row">
+        <div id="signin" name="signin" class="col login-col">
+          <div class="login d-flex align-items-center py-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-10 col-xl-7 mx-auto">
+                  <h3 class="display-4 text-center">Movie Delver</h3>
+                  <p class="text-muted mb-4 text-center">To continue, log in to Movie Delver.</p>
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  <ul class="flashes">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                  {% endwith %}
+                  <form method="POST" action="/login">
+                    <div class="mb-3">
+                      <input class="form-control rounded-pill border-0 shadow-sm px-4" type="input" name="username"
+                        placeholder="Username" autofocus="">
+                    </div>
+                    <div class="mb-3">
+                      <input class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" type="password"
+                        name="password" placeholder="Password">
+                    </div>
+                    <div class="field">
+                      <label class="checkbox">
+                        <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                        <label for="customCheck1" class="custom-control-label">Remember me</label>
+                      </label>
+                    </div>
+                    <button class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Login</button>
+                  </form>
+
+                  <label class="hr-label">OR</label>
+                  <div class="text-center bottom-button">
+                    <form action="/signup">
+                      <input class="btn btn-outline-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"
+                        type="submit" value="Sign up for Movie Delver" />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>

@@ -1,0 +1,140 @@
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background-color: #ff8552;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+}
+img {
+  border-radius: 15px;
+  width: 350;
+  height: 500;
+}
+html {
+  height: -webkit-fill-available;
+}
+header {
+  height: 10vh;
+}
+main {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 80vh;
+  /* height: -webkit-fill-available; */
+  max-height: 80vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+footer {
+  height: 10vh;
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+.iconSize {
+  height: 75px;
+  width: 75px;
+}
+.row {
+  margin: 0px;
+}
+
+.flashes {
+  color: red;
+}
+
+/* Button CSS */
+
+.btn {
+  color: #e9d758;
+}
+.btn-outline-primary{
+  border-color: #297373;
+}
+.btn-outline-primary:hover {
+  background-color: #2b8d8d;
+  border-color: #2b8d8d;
+  color: #e6e6e6;
+}
+.btn-primary {
+  background-color: #297373;
+  border-color: #297373;
+}
+.btn-primary:hover {
+  color: #e6e6e6;
+  background-color: #2b8d8d;
+  border-color: #2b8d8d;
+}
+
+/* Movie CSS */
+.movie-container {
+  width: 50%
+}
+
+.movie-details {
+  text-align: left;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.rating {
+  width: 60px;
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+/* Login-SignUp CSS */
+.login {
+  min-height: 100%;
+}
+
+.login-row {
+  height: 100%;
+}
+
+.login-container {
+  padding: 0px;
+}
+
+.login-col {
+  padding: 0px;
+}
+.hr-label {
+  display: flex;
+  flex-direction: row;
+}
+
+.hr-label:before,
+.hr-label:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid #000;
+  margin: auto;
+}
+
+.bottom-button {
+  margin-top: 15px;
+}
+
+.text-muted {
+  color: #39393a !important;
+}
+
+/* Request CSS  */
+
+.request { 
+  width: 40%;
+  padding-top: 5%;
+}
+.form-group {
+  padding-bottom: 12px;
+}

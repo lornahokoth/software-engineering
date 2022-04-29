@@ -1,0 +1,6 @@
+[submodule "code-a-long/lect20-demo"]
+	path = code-a-long/lect20-demo
+	url = https://github.com/jomart-gsu/lect20-demo-006
+[submodule "finalproject-finished"]
+	path = finalproject-finished
+	url = https://github.com/lornahokoth/Final-Project-SWE

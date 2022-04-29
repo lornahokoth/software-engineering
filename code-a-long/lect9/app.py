@@ -8,7 +8,7 @@ load_dotenv(find_dotenv())
 app = flask.Flask(__name__)
 
 # Point SQLAlchemy to your Heroku db
-app.config["SQLALCHEMY_DATABSE_URL"] = os.getenv("DATABASE_URL")
+app.config["SQLALCHEMY_DATABSE_URI"] = os.getenv("DATABASE_URL")
 # Gets rid of a warning
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -30,9 +30,7 @@ def index():
     if flask.request.method == "POST":
         data = flask.request.form
         new_todo = Todo(
-            task=data["task"],
-            priority=data["priority"],
-            due_date=data["due_date"]
+            task=data["task"], priority=data["priority"], due_date=data["due_date"]
         )
         db.session.add(new_todo)
         db.session.commit()
@@ -46,4 +44,4 @@ def index():
     )
 
 
-app.run()
+app.run(debug=True)
