@@ -4,3 +4,6 @@
 [submodule "finalproject-finished"]
 	path = finalproject-finished
 	url = https://github.com/lornahokoth/Final-Project-SWE
+[submodule "project1-sub"]
+	path = project1-sub
+	url = https://github.com/csc4350-sp22/project1-lokoth1
